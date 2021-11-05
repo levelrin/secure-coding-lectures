@@ -9,3 +9,5 @@ build/
 
 .idea/*
 out/*
+
+__pycache__/
