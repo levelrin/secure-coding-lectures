@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  sql-injection-db:
+    image: postgres:13.2
+    environment:
+      POSTGRES_DB: sql-injection
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /usr/share/pgdata
+    ports:
+      - "5432:5432"
+  sql-injection-web:
+    build: .
+    image: sql-injection-web:1
+    depends_on:
+      - sql-injection-db
+    ports:
+      - "5000:5000"
+    volumes:
+      - ".:/usr/share/sql-injection-web"
+    working_dir: /usr/share/sql-injection-web
+    command: tail -f /dev/null
