@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Improper Session Management</title>
+</head>
+<body>
+
+<h1>Online Shopping</h1>
+
+{% if session_id in sessions %}
+{% set user = sessions[session_id] %}
+{% set displayName = user["displayName"] %}
+<p>Hello, {{ displayName }}!</p>
+<p>Your items are:</p>
+<ul>
+    {% for item in user["items"] %}
+        <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>
+    Hello there, this is an online shopping center.
+    Please log in to see your items.
+</p>
+<form action="/login" name="GET">
+    <!-- We want to append the session_id in the query string for the bad example -->
+    {% if session_id != None %}
+        <!-- This is how we can keep the session_id in the login page. -->
+        <input type="hidden" name="session_id" value="{{ session_id }}" />
+    {% endif %}
+    <input type="submit" value="login" />
+</form>
+{% endif %}
+
+</body>
+</html>
