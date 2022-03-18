@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+  <form action="/login" method="POST">
+    <label>username:</label><br>
+    <input type="text" name="username" /><br><br>
+    <label>password:</label><br>
+    <input type="password" name="password" /><br><br>
+    <input type="submit" value="Login" />
+    <!-- We want to append the session_id in the query string for the bad example -->
+    {% if session_id != None %}
+        <!-- This is how we can keep the session_id in the URL. -->
+        <input type="hidden" name="session_id" value="{{ session_id }}" />
+    {% endif %}
+  </form>
+</body>
+</html>
