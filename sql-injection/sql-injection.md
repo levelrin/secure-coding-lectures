@@ -156,7 +156,7 @@ sql-injection=# table users;
 
 We are done with studying SQL injection :)
 
-We can use' exit' commend to close the web container's shell and db container's psql terminal.
+We can use 'exit' commend to close the web container's shell and db container's psql terminal.
 After that, we should execute the following command to stop the containers:
 ```
 docker-compose down

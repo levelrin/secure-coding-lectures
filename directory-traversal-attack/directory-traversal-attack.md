@@ -103,7 +103,7 @@ The website is no longer vulnerable to directory traversal attacks.
 
 We are done with studying the directory traversal attack.
 
-We can use' exit' commend to close the container's shell.
+We can use 'exit' commend to close the container's shell.
 Furthermore, we no longer need the `directory-traversal-attack:1` image. Let's delete it by the following command:
 ```
 docker rmi directory-traversal-attack:1
