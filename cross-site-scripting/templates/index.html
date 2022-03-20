@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cross-Site Scripting</title>
+</head>
+<body>
+    <form action="/echo" method="POST">
+        <label>Say what you want:</label>
+        <input type="text" name="content">
+        <input type="submit" value="post" />
+    </form>
+</body>
+</html>

@@ -103,7 +103,7 @@ The website is no longer vulnerable to OS command injection.
 
 We are done with studying OS command injection.
 
-We can use' exit' commend to close the container's shell.
+We can use 'exit' commend to close the container's shell.
 Furthermore, we no longer need the `os-command-injection:1` image. Let's delete it by the following command:
 ```
 docker rmi os-command-injection:1

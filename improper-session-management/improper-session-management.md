@@ -104,7 +104,7 @@ The website is more secure because:
 
 We are done with studying the improper session management.
 
-We can use' exit' commend to close the container's shell.
+We can use 'exit' commend to close the container's shell.
 Furthermore, we no longer need the `improper-session-management:1` image. Let's delete it by the following command:
 ```
 docker rmi improper-session-management:1
