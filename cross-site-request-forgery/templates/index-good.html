@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSRF</title>
+</head>
+<body>
+{% if user == None %}
+    <p>Please login</p>
+    <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="Login">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    </form>
+{% else %}
+    <p>Hello {{ user["displayName"] }}</p>
+    <p>Your items:</p>
+    {% for item in user["items"] %}
+        <ul>
+            <li>
+                <!-- HTML form does not support DELETE method, so we are using POST as a workaround -->
+                <form action="/removeItem" method="POST">
+                    <label>{{ item }}</label>
+                    <input type="hidden" name="item" value="{{ item }}">
+                    <input type="submit" value="Remove">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                </form>
+            </li>
+        </ul>
+    {% endfor %}
+    <p>Please add an item.</p>
+    <form action="/addItem" method="POST">
+        <input type="text" name="item" placeholder="item">
+        <input type="submit" value="Add">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    </form>
+    <form action="/logout" method="POST">
+        <input type="submit" value="Logout">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    </form>
+{% endif %}
+</body>
+</html>
