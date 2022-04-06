@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mail Header Injection</title>
+</head>
+<body>
+<h1>Please take a survey</h1>
+<form action="/survey" method="GET">
+  <label for="fruit">Choose your favorite fruit:</label>
+  <select id="fruit" name="fruit">
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="orange">Orange</option>
+  </select><br>
+  <label>Please enter your email address, so we can offer some gifts.</label>
+  <input type="text" name="mail-address"><br>
+  <input type="submit">
+</form>
+</body>
+</html>
